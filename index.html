@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Include necessary JavaScript libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <title>Dessert Palette Adventure</title>
+    <!-- Include custom CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- Header Section -->
+        <div class="col-md-12 jumbotron text-center">
+          <h1>Dessert Palette Adventure</h1>
+          <p>
+            Discover delightful desserts through interactive charts and
+            visualizations!
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Recipe Selection Section -->
+        <div class="col-md-2">
+          <div class="well">
+            <h2>Select a Dessert:</h2>
+            <!-- Dropdown for dessert selection -->
+            <select class="form-control" id="selDataset"></select>
+          </div>
+          <!-- Cooking Time Section-->
+          <div id="custom-cookingtime" class="well well-cooking-time"></div>
+          <!-- View Instructions Button -->
+          <div class="text-center">
+            <a
+              href="#"
+              id="external-link"
+              class="btn btn-external-link"
+              target="_blank"
+              >View<br />Instructions</a
+            >
+          </div>
+        </div>
+        <!-- Recipe Image, Ingredients, and Charts Section -->
+        <div class="col-md-5">
+          <!-- Recipe image container -->
+          <div class="thumbnail">
+            <img
+              id="recipe-image"
+              alt="Recipe Image"
+              style="width: 100%; height: auto"
+            />
+          </div>
+          <!-- Ingredients Section -->
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2 class="panel-title">Ingredients</h2>
+            </div>
+            <div
+              id="sample-ingredients"
+              class="panel-body ingredients-container"
+            ></div>
+          </div>
+        </div>
+        <!-- Charts Section-->
+        <div class="col-md-5">
+          <div class="panel panel-default" style="height: 350px">
+            <div class="panel-heading">
+              <h2 class="panel-title">Recipe Rating</h2>
+            </div>
+            <!-- Gauge chart for rating -->
+            <div id="gauge" class="panel-body"></div>
+          </div>
+          <div class="panel panel-default" style="height: 400px">
+            <!-- Bar chart for nutrition -->
+            <canvas id="bar" class="panel-body" height="300"></canvas>
+          </div>
+          <!-- Leave a Review Section -->
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2 class="panel-title">Leave a Review</h2>
+            </div>
+            <div class="panel-body">
+              <form id="review-form">
+                <div class="form-group">
+                  <label for="review-text">Your Review:</label>
+                  <textarea
+                    class="form-control"
+                    id="review-text"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Submit Review
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include custom JavaScript -->
+    <script type="module" src="./static/js/app.js"></script>
+  </body>
+</html>

@@ -8,6 +8,7 @@
 
 - [About the Project](#about-the-project)
   - [Built With](#built-with)
+- [Data Sources] (#data-sources)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -23,7 +24,7 @@
 
 ### Project Description
 
-Our project is dedicated to the exploration and analysis of a delectable dataset of dessert recipes. We go beyond data analysis by crafting an engaging and interactive dashboard experience, allowing you to immerse yourself in the world of delightful desserts.
+My project offers a delightful journey into the world of dessert recipes, where we uncover fascinating insights. I delve into the relationship between recipe ratings and their ingredients, as well as the intriguing connection between ratings and total cooking time. Through interactive visualizations, I brought these insights to life, allowing you to explore and savor the secrets behind delectable desserts.
 
 ### Built With
 
@@ -32,6 +33,14 @@ Our project is dedicated to the exploration and analysis of a delectable dataset
 - SQLAlchemy
 - Pandas
 - HTML/CSS/JavaScript
+
+---
+## Data Sources
+- **Dataset**: My project utilizes a dataset of  recipes, which includes information about ingredients, cooking times, user ratings, and more. You can access and download the dataset from the following link:
+
+  [Recipes(CSV)](https://www.kaggle.com/datasets/thedevastator/better-recipes-for-a-better-life)
+  
+  Data Credit to original authors: https://github.com/agm316/Food-Your-Way
 
 ---
 
@@ -68,8 +77,6 @@ To get started with DessertPalette, follow the instructions below.
 ---
 ## Usage
 
-To make the most of DessertPalette and explore the world of dessert recipes, follow these simple steps:
-
 1. **Installation**: Ensure you have the necessary dependencies installed by following the installation instructions provided in the [Installation](#installation) section of this README.
 
 2. **Run the Application**: Start the Flask application by running the following command in your project directory:
@@ -86,10 +93,16 @@ To make the most of DessertPalette and explore the world of dessert recipes, fol
    - View user ratings to discover highly-rated desserts.
    - Explore the ingredients used in various desserts to find exciting flavor combinations.
    - Gain insight into the nutritional aspects of your favorite desserts for informed indulgence.
+   
+4. **Access Analytics and Conclusion**: Access the project's analytical insights and conclusion. Click the "Tips for High Rating Dessert" button to dive deeper into:
 
-4. **Leave Your Feedback**: If you've tried a dessert and want to share your experience, use the provided review box to leave your personal reviews and feedback.
+   - The relationship between recipe ratings and their ingredients.
+   - The intriguing connection between ratings and total cooking time.
+   - Discovering the ingredient pairs that lead to the highest ratings.
+   
+5. **Access Recipe Instructions**: For detailed cooking instructions and original recipes, click the "View Instruction" button associated with each dessert. This will guide you to another page with cooking time information.
 
-5. **Access Recipe Instructions**: For detailed cooking instructions and original recipes, click the "Instruction" button associated with each dessert. This will guide you to another page with cooking time information.
+6. **Leave Your Feedback**: If you've tried a dessert and want to share your experience, use the provided review box to leave your personal reviews and feedback.
 
 ---
 
@@ -99,6 +112,7 @@ To make the most of DessertPalette and explore the world of dessert recipes, fol
 ---
 
 ## Contributing
+- Pei-Ju Wu (Emily)
 
 ---
 
@@ -114,4 +128,3 @@ Pei-Ju Wu
 - Email: emilywupeiju@gmail.com
 
 Project Link: [GitHub - DessertPalette](https://github.com/emiwuwu/DessertPalette)
-

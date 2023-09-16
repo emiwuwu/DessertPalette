@@ -42,7 +42,11 @@ async function loadDataAndDisplay(recipeId) {
                 .data(['prep_time', 'cook_time', 'total_time', 'servings'])
                 .enter()
                 .append('p')
-                .text((d) => `${d.replace('_', ' ').toUpperCase()}: ${selectedRecipe[d]}`);
+                .text((d) => `${d.replace('_', ' ').toUpperCase()}:  ${selectedRecipe[d]}`);
+            
+            cookingTimeBox
+                .append('p')
+                .text('(Unit: Minute)');
 
             linkElement.attr('href', selectedRecipe.url);
             recipeImage.attr('src', selectedRecipe.img_src);
@@ -163,12 +167,17 @@ function init() {
 
     document.addEventListener("DOMContentLoaded", function () {
         const reviewForm = document.getElementById("review-form");
+        const commentBox= document.getElementById("sample-comments")
     
         reviewForm.addEventListener("submit", function (e) {
           e.preventDefault();
           const userReview = document.getElementById("review-text").value;
       
           // Log the review to the console
+          const boxItem= document.createElement('li');
+          boxItem.textContent = userReview;
+          commentBox.appendChild(boxItem);
+          
           console.log("Submitted Review:", userReview);
       
           // Clear the form

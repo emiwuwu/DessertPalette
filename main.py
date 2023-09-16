@@ -9,9 +9,9 @@ class Recipe(Base):
 
     id = Column(Integer, primary_key=True)
     recipe_name = Column(String(100), nullable=False)
-    prep_time = Column(String(100))
-    cook_time = Column(String(100))
-    total_time = Column(String(100))
+    prep_time = Column(Integer)
+    cook_time = Column(Integer)
+    total_time = Column(Integer)
     servings = Column(Integer)
     directions = Column(TEXT)
     url = Column(TEXT)

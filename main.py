@@ -36,7 +36,7 @@ class Recipe(Base):
 class Ingredient(Base):
     __tablename__ = 'ingredients'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     meal_id = Column(Integer, ForeignKey('recipes.id'), nullable=False)
     ingredients = Column(String(255))
 
@@ -49,7 +49,7 @@ class Ingredient(Base):
 class Rating(Base):
     __tablename__ = 'ratings'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     meal_id = Column(Integer, ForeignKey('recipes.id'), nullable=False)
     rating = Column(Float, nullable=False)
 
@@ -62,7 +62,7 @@ class Rating(Base):
 class Nutrition(Base):
     __tablename__ = 'nutritions'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     meal_id = Column(Integer, ForeignKey('recipes.id'), nullable=False)
     protein = Column(Float)
     carbohydrate = Column(Float)
@@ -77,6 +77,20 @@ class Nutrition(Base):
         self.carbohydrate = carbohydrate
         self.fat = fat
         self.dietary_fiber = dietary_fiber
+
+
+class Result(Base):
+    __tablename__ = 'results'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    ingredient = Column(String, nullable=False)
+    avg_rating = Column(Float, nullable=False)
+    avg_total_time = Column(Float, nullable=False)
+
+    def __init__(self, ingredient, avg_rating, avg_total_time):
+        self.ingredient = ingredient
+        self.avg_rating = avg_rating
+        self.avg_total_time = avg_total_time
 
 
 engine = create_engine('sqlite:///Resources/DessertPaletteRecipesDB.db')

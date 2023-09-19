@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Include necessary JavaScript libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <title>Views and Insights</title>
+    <!-- Include custom CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- Header Section -->
+        <div class="col-md-12 jumbotron text-center">
+          <h1>Views and Insights</h1>
+          <h2>Discovering the Secrets of High Rating Recipes</h2>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Charts Section -->
+        <div class="col-xl-12">
+          <!-- Bar chart for ingredients and ratings -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Ingredients vs Ratings</h2>
+            </div>
+            <!-- Bar chart -->
+            <canvas id="bar" class="panel-body"></canvas>
+          </div>
+          <!-- Line Chart for Total Time and Rating -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Ratings vs Total Time (Minutes)</h2>
+            </div>
+            <!-- Line chart-->
+            <canvas id="line" class="panel-body"></canvas>
+          </div>
+          <!-- Bubble Chart for Ingredient, Rating  and Total Time-->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Ingredients, Ratings & Total Time (Minutes)</h2>
+            </div>
+            <!-- Combo Bar/Line chart-->
+            <canvas id="combo" class="panel-body"></div>
+          </div>
+          <!-- Conclusion Section -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Conclusions</h2>
+            </div>
+            <!-- Conclusions -->
+            <div style="height: 200px">
+              <li>hi</li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include custom JavaScript -->
+    <script type="module" src="./static/js/view.js"></script>
+  </body>
+</html>

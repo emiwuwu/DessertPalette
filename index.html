@@ -23,10 +23,7 @@
         <!-- Header Section -->
         <div class="col-md-12 jumbotron text-center">
           <h1>Dessert Palette Adventure</h1>
-          <p>
-            Discover delightful desserts through interactive charts and
-            visualizations!
-          </p>
+          <h2>Explore Sweet Visualizations!</h2>
         </div>
       </div>
       <div class="row">
@@ -51,14 +48,17 @@
           </div>
           <div style="margin-top: 20px"></div>
           <div class="text-center">
-            <a href="#" class="btn btn-external-link" target="_blank"
+            <a
+              href="http://127.0.0.1:5500/view.html"
+              class="btn btn-external-link"
+              target="_blank"
               >Tips for <br />
               High Rating <br />
               Dessert</a
             >
           </div>
         </div>
-        <!-- Recipe Image, Ingredients, and Charts Section -->
+        <!-- Recipe Image and Charts Section -->
         <div class="col-md-5">
           <!-- Recipe image container -->
           <div class="thumbnail">
@@ -68,37 +68,34 @@
               style="width: 100%; height: auto"
             />
           </div>
-          <!-- Ingredients Section -->
+          <!-- Rader Chart Section -->
           <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h2 class="panel-title">Ingredients</h2>
-            </div>
-            <div
-              id="sample-ingredients"
-              class="panel-body ingredients-container"
-            ></div>
+            <!-- Radar chart-->
+            <canvas id="radar"></canvas>
           </div>
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h2 class="panel-title">Users Reviews</h2>
+              <h2 class="panel-title">Other Users Reviews</h2>
             </div>
             <div
               id="sample-comments"
               class="panel-body comments-container"
-              style="height: 200px"
             ></div>
           </div>
         </div>
         <!-- Charts Section-->
         <div class="col-md-5">
-          <div class="panel panel-default" style="height: 350px">
+          <div id="rating-panel" class="panel panel-default">
             <div class="panel-heading">
               <h2 class="panel-title">Recipe Rating</h2>
             </div>
             <!-- Gauge chart for rating -->
             <div id="gauge" class="panel-body"></div>
           </div>
-          <div class="panel panel-default" style="height: 400px">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">Nutrition</h2>
+            </div>
             <!-- Bar chart for nutrition -->
             <canvas id="bar" class="panel-body" height="300"></canvas>
           </div>

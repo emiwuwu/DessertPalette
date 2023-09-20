@@ -7,7 +7,9 @@
     <!-- Include necessary JavaScript libraries -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <!-- Include the 'regression' library -->
+    <script src="https://cdn.jsdelivr.net/npm/regression"></script>
     <!-- Include Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -29,38 +31,39 @@
       <div class="row">
         <!-- Charts Section -->
         <div class="col-xl-12">
-          <!-- Bar chart for ingredients and ratings -->
+          <!-- Bar Chart for ingredients and ratings -->
           <div class="panel panel-default">
             <div class="panel-heading">
               <h2 class="panel-title">Ingredients vs Ratings</h2>
             </div>
-            <!-- Bar chart -->
+            <!-- Bar Chart -->
             <canvas id="bar" class="panel-body"></canvas>
           </div>
-          <!-- Line Chart for Total Time and Rating -->
+          <!-- Scatter Plot for Ratings and Total Time -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 class="panel-title">Ratings vs Total Time (Minutes)</h2>
+              <h2 class="panel-title">Ratings vs Total Cooking Time (Minutes)</h2>
             </div>
-            <!-- Line chart-->
-            <canvas id="line" class="panel-body"></canvas>
+            <!-- Scatter Plot-->
+            <canvas id="scatter" class="panel-body"></canvas>
           </div>
-          <!-- Bubble Chart for Ingredient, Rating  and Total Time-->
+          <!-- Combo Chart for Ingredients, Total Time and Ratings -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 class="panel-title">Ingredients, Ratings & Total Time (Minutes)</h2>
+              <h2 class="panel-title">Ingredients, Total Cooking Time (Minutes) & Ratings</h2>
             </div>
-            <!-- Combo Bar/Line chart-->
+            <!-- Combo Bar/Line Chart-->
             <canvas id="combo" class="panel-body"></div>
           </div>
-          <!-- Conclusion Section -->
+          <!-- Insights Section -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h2 class="panel-title">Conclusions</h2>
+              <h2 class="panel-title">Insights</h2>
             </div>
-            <!-- Conclusions -->
-            <div style="height: 200px">
-              <li>hi</li>
+            <!-- Insights -->
+            <div id= "sample-insights">
+              <div id="text-box"> 
+              </div>
             </div>
           </div>
         </div>

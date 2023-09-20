@@ -22,7 +22,7 @@ def index():
     available_routes = [
         '/api/v1.0/recipes',
         '/api/v1.0/ingredients',
-        '/api/v1.0/nutritions',
+        '/api/v1.0/nutrition',
         '/api/v1.0/ratings',
         '/api/v1.0/results'
     ]
@@ -66,7 +66,7 @@ def get_ingredients():
 
 
 # Define a route to get nutritions
-@app.route('/api/v1.0/nutritions')
+@app.route('/api/v1.0/nutrition')
 def get_nutritions():
     session = Session(engine)
     results = session.query(Nutrition).all()

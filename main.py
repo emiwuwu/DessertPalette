@@ -60,7 +60,7 @@ class Rating(Base):
 
 
 class Nutrition(Base):
-    __tablename__ = 'nutritions'
+    __tablename__ = 'nutrition'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     meal_id = Column(Integer, ForeignKey('recipes.id'), nullable=False)

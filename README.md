@@ -24,15 +24,16 @@
 
 ### Project Description
 
-My project offers a delightful journey into the world of dessert recipes, where we uncover fascinating insights. I delve into the relationship between recipe ratings and their ingredients, as well as the intriguing connection between ratings and total cooking time. Through interactive visualizations, I brought these insights to life, allowing you to explore and savor the secrets behind delectable desserts.
+My project offers an engaging exploration of dessert recipes, where I uncover interesting patterns. I explore how recipe ratings relate to their ingredients and examine the correlation between ratings and total cooking time. By using interactive visualizations, I've made these insights accessible, enabling you to dive deep into the finer details of desserts.
 
 ### Built With
 
 - Python
+- Pandas
 - Flask
 - SQLAlchemy
-- Pandas
-- HTML/CSS/JavaScript
+- HTML/CSS
+- JavaScript
 
 ---
 ## Data Sources
@@ -77,33 +78,32 @@ To get started with DessertPalette, follow the instructions below.
 ---
 ## Usage
 
-1. **Installation**: Ensure you have the necessary dependencies installed by following the installation instructions provided in the [Installation](#installation) section of this README.
+1. **Installation**: Make sure you have all the necessary dependencies installed by following the instructions in the [Installation](#installation) section of this README.
 
-2. **Run the Application**: Start the Flask application by running the following command in your project directory:
+2. **Running the Application**: To start the Flask application, navigate to your project directory and execute the following command:
 
    ```sh
    python app.py
    ```
 
-   This will launch the web application, making it accessible through your web browser.
+   This command will launch the web application, which you can access through your web browser. Additionally, make sure to open the live server for the `index.html` file.
 
-3. **Explore Dessert Recipes**: Visit the interactive dashboard in your web browser to begin your dessert exploration. You can:
+3. **Exploring Dessert Recipes**: Visit the interactive dashboard in your web browser to begin your delightful dessert journey. Here are some things you can do:
 
-   - Use the dropdown menu to choose desserts that match your preferences.
-   - View user ratings to discover highly-rated desserts.
-   - Explore the ingredients used in various desserts to find exciting flavor combinations.
-   - Gain insight into the nutritional aspects of your favorite desserts for informed indulgence.
-   
-4. **Access Analytics and Conclusion**: Access the project's analytical insights and conclusion. Click the "Tips for High Rating Dessert" button to dive deeper into:
+   - Utilize the dropdown menu to select desserts that align with your preferences.
+   - Discover highly-rated desserts by checking user ratings.
+   - Gain valuable insights into the nutritional aspects of your favorite desserts for informed indulgence.
+    - Provide a radar chart to visually represent attributes like rating, total cooking time, servings, and carbs for each dessert.
+
+4. **Accessing Analytics and Conclusion**: Dive into the project's analytical insights and conclusion. Click the "Tips for High Ratings" button to explore:
 
    - The relationship between recipe ratings and their ingredients.
-   - The intriguing connection between ratings and total cooking time.
-   - Discovering the ingredient pairs that lead to the highest ratings.
+   - Whether there is a correlation between ratings and total cooking time.
+   - Combining ingredients, total cooking time, and discovering the relationship between ingredients and cooking time with ratings.
    
-5. **Access Recipe Instructions**: For detailed cooking instructions and original recipes, click the "View Instruction" button associated with each dessert. This will guide you to another page with cooking time information.
+5. **Accessing Recipe Instructions**: For detailed cooking instructions and original recipes, simply click the "View Instructions" button associated with each dessert. This will direct you to a dedicated page with comprehensive cooking time information.
 
-6. **Leave Your Feedback**: If you've tried a dessert and want to share your experience, use the provided review box to leave your personal reviews and feedback.
-
+6. **Sharing Your Feedback**: If you've had the pleasure of trying one of these desserts and want to share your thoughts, you can easily do so using the provided review box. Your personal reviews and feedback are highly appreciated and valuable to us.
 ---
 
 ## API Documentation

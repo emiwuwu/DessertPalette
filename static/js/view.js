@@ -12,18 +12,20 @@ async function fetchResult(){
 }
 
 // Function to create and display charts
-async function createCharts(){
+async function createChartsAndInsights(){
     // Fetch data using the fetchResult function
     const data = await fetchResult();
 
     if (data.results){
-        // Initialize arrays to store ingredients, ratings, and total time
+        // Initialize arrays to store ingredients, ratings, total time and data points
         const ingredients = [];
         const ratings = [];
         const totalTime = [];
+        const dataPoints=[];
 
         // Loop through the results and extract ingredient, rating, and total time data
         for (let result of data.results){
+
             const ingredient = result.ingredient;
             const rating = result.avg_rating;
             const time = result.avg_total_time;
@@ -32,48 +34,73 @@ async function createCharts(){
             ingredients.push(ingredient);
             ratings.push(rating);
             totalTime.push(time);
-        }
 
-        // Define data and options for the bar chart
-        const barChartData = {
-            labels: ingredients,
-            datasets: [{
-                label: 'Rating',
-                data: ratings,
-                backgroundColor:'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        };
+            // Create a data point object for the scatter plot
+            const dataPoint={
+              x: rating,
+              y: time
+            };
+            dataPoints.push(dataPoint);
+        }
 
         // Create a bar chart
         const myBarChart = document.getElementById('bar').getContext('2d');
         const inRatingChart = new Chart(myBarChart, {
             type: 'bar',
-            data: barChartData
+            data: {
+              labels: ingredients,
+              datasets: [{
+                  label: 'Rating',
+                  data: ratings,
+                  backgroundColor:'rgba(54, 162, 235, 0.2)',
+                  borderColor: 'rgba(54, 162, 235, 1)',
+                  borderWidth: 1
+              }]
+          },
+            options: {
+              scales: {
+                  y: {
+                      beginAtZero:false,
+                      min:4.1
+                  }
+              }
+          }
+            
         });
 
-        // Define data and options for the line chart
-        const lineChartData = {
-            labels: ratings,
-            datasets: [{
-                label: 'Total Time',
-                data: totalTime,
-                backgroundColor:'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
+        // Performing linear regression on the xyData
+        const xyData = dataPoints.map((dataPoint) => [dataPoint.x, dataPoint.y]);
+        const result = regression.linear(xyData);
+        const rSquared = result.r2; // Extract R-squared value
+
+        // Create a scatter plot
+        const myScatterPlot = document.getElementById('scatter').getContext('2d');
+        const scatterPlot= new Chart(myScatterPlot,{
+          type:'scatter',
+          data: {
+            datasets:[{
+              label: `Ratings vs Total Cooking Time (R-Squared: ${rSquared})`,
+              data: dataPoints,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)', // Adjust color as needed
+              borderColor: 'rgba(255, 99, 132, 1)',
+              pointRadius: 6,
             }]
-        };
-    
-        // Create a line chart
-        const myLineChart = document.getElementById('line').getContext('2d');
-        const timeRatingChart = new Chart(myLineChart, {
-            type: 'line',
-            data: lineChartData
+          },
+          options: {
+            scales: {
+                x:{
+                    type: 'linear',
+                    position: 'bottom'
+                }
+            }
+          } 
         });
-
-        // Define data and options for the combined chart
-        const comboChartData = {
+          
+        // Create a combined chart
+        const myComboChart = document.getElementById('combo').getContext('2d');
+        const comboChart = new Chart(myComboChart, {
+          type: 'bar', // Set the primary chart type
+          data: {
             labels: ingredients,
             datasets: [
               {
@@ -82,10 +109,9 @@ async function createCharts(){
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
-                stack: 'combined', // Stack the bars
                 type: 'bar', // Bar chart type for this dataset
-                yAxisID: 'y-axis-1', // Use the primary y-axis
-              },
+                order: 2
+                },
               {
                 label: 'Rating',
                 data: ratings,
@@ -96,36 +122,51 @@ async function createCharts(){
                 pointRadius: 5,
                 pointHoverRadius: 7,
                 type: 'line', // Line chart type for this dataset
-                yAxisID: 'y-axis-2', // Use the secondary y-axis
-              },
+                order: 1,
+                yAxisID: 'y2'
+                },
             ],
-          };
-          
-          // Create a combined chart
-          const myComboChart = document.getElementById('combo').getContext('2d');
-          const comboChart = new Chart(myComboChart, {
-            type: 'bar', // Set the primary chart type
-            data: comboChartData,
+            },
             options: {
               scales: {
-                yAxes: [
-                  {
-                    id: 'y-axis-1',
+                x: {
+                   grid: {
+                     display: false, // Disable grid lines on the x-axis
+                  }
+                },
+                y: {
+                    id: 'y1',
                     type: 'linear',
                     position: 'left', // Position on the left for the bar chart
+                    grid: {
+                      display: false, // Disable grid lines on the y-axis
+                  }
                   },
-                  {
-                    id: 'y-axis-2',
+                y2: {
+                    id: 'y2',
                     type: 'linear',
                     position: 'right', // Position on the right for the line chart
+                    beginAtZero: false,
+                    min:4.1
                   },
-                ],
               },
               responsive: true
             },
           });
+
+          const insightsBox=  d3.selectAll('#text-box');
+          insightsBox.html("");
+          const insights= ["According to the bar chart presented above, it's clear that recipes featuring mixed fruit have achieved the highest average rating, with rum flavored extract and brandy closely following behind.",
+          "The scatter plot's R-squared value of 0.01 indicateds minimal correlation between total cooking time and ratings, implying a weak relationship between the two variables.",
+          "Based on the combination chart, for desserts rated above 4.5, maple syrup-based recipes offer the best ratings while demanding the shortest total cooking time."]
+
+          insights.forEach((insights) =>{
+            insightsBox
+            .append('li')
+            .text(insights);
+          });
     }
 }
 
-// Call the createCharts function to generate and display the charts
-createCharts();
+// Call the createChartsAndInsights function to generate and display the charts and insights
+createChartsAndInsights();

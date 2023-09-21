@@ -108,7 +108,34 @@ To get started with DessertPalette, follow the instructions below.
 
 ## API Documentation
 
+### Introduction
 
+This API provides access to a variety of resources related to recipes, ingredients, nutrition, ratings, and search results. You can use this API to retrieve and interact with data for you needs.
+
+### Endpoints
+
+The following endpoints are available for this API:
+
+1. ### Recipes
+    - **Endpoint:** `/api/v1.0/recipes`
+    - **Description:** This endpoint allows you to access information about recipes, including servings, cooking time, instructions, and more.
+
+2. ### Ingredients
+    - **Endpoint:** `/api/v1.0/ingredients`
+    - **Description:** Use this endpoint to retrieve data related to ingredients used in various recipes.
+
+3. ### Nutrition
+    - **Endpoint:** `/api/v1.0/nutrition`
+    - **Description:** Access nutritional information for different foods and recipes using this endpoint.
+
+4. ### Ratings
+    - **Endpoint:** `/api/v1.0/ratings`
+    - **Description:** This endpoint allows you to retrieve ratings specifically for recipes stored in the database.
+
+5. ### Flavored Ingredients
+    - **Endpoint:** `/api/v1.0/flavored-ingredients`
+    - **Description:** This endpoint allows you to search for flavored ingredients in the database and retrieve their average rating and average total cooking time.
+    
 ---
 
 ## Contributing

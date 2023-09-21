@@ -2,7 +2,7 @@
 async function fetchResult(){
     try {
         // Fetch data from the API and convert the response to JSON
-        const resultsResponse = await fetch('http://127.0.0.1:5000/api/v1.0/results').then((res) => res.json());
+        const resultsResponse = await fetch('http://127.0.0.1:5000/api/v1.0/flavored-ingredients').then((res) => res.json());
         
         // Return the results in an object
         return { results: resultsResponse };

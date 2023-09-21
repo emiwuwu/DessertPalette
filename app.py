@@ -2,7 +2,7 @@ from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 from sqlalchemy import create_engine, func
 from sqlalchemy.orm import Session
-from main import Recipe, Ingredient, Nutrition, Rating, Result
+from main import Recipe, Ingredient, Nutrition, Rating, FlavoredIngredient
 
 # Database Setup
 engine = create_engine('sqlite:///Resources/DessertPaletteRecipesDB.db')
@@ -24,7 +24,7 @@ def index():
         '/api/v1.0/ingredients',
         '/api/v1.0/nutrition',
         '/api/v1.0/ratings',
-        '/api/v1.0/results'
+        '/api/v1.0/flavored-ingredients'
     ]
     # Return the list of available routes as a JSON response
     return jsonify({"available_routes": available_routes})
@@ -97,10 +97,10 @@ def get_ratings():
 
 
 # Define a route to get results
-@app.route('/api/v1.0/results')
+@app.route('/api/v1.0/flavored-ingredients')
 def get_results():
     session = Session(engine)
-    results = session.query(Result).all()
+    results = session.query(FlavoredIngredient).all()
     # Convert data to JSON
     results_json = [{'id': result.id,
                      'ingredient': result.ingredient,

@@ -79,8 +79,8 @@ class Nutrition(Base):
         self.dietary_fiber = dietary_fiber
 
 
-class Result(Base):
-    __tablename__ = 'results'
+class FlavoredIngredient(Base):
+    __tablename__ = 'flavoredIngredients'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     ingredient = Column(String, nullable=False)

@@ -156,7 +156,7 @@ async function createChartsAndInsights(){
 
           const insightsBox=  d3.selectAll('#text-box');
           insightsBox.html("");
-          const insights= ["According to the bar chart presented above, it's clear that recipes featuring mixed fruit have achieved the highest average rating, with rum flavored extract and brandy closely following behind.",
+          const insights= ["Based on the presented bar chart, it's evident that recipes featuring 'mixed fruit' have the highest average ratings. 'Rum flavored extract' and 'Brandy' closely follow as top-rated ingredients. This suggests that including alcoholic ingredients in dessert recipes may contribute to higher ratings.",
           "The scatter plot's R-squared value of 0.01 indicateds minimal correlation between total cooking time and ratings, implying a weak relationship between the two variables.",
           "Based on the combination chart, for desserts rated above 4.5, maple syrup-based recipes offer the best ratings while demanding the shortest total cooking time."]
 
